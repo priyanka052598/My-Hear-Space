@@ -3,31 +3,13 @@ import { motion } from "motion/react"
 
 
 function Firstrecharge() {
+  const isLgScreen = window.innerWidth >= 1024; // Check if the screen size is large
+
   return (
-    // <div className='px-[100px] text-[#d9d9d9] relative bg-[#111111] py-20 px-auto flex justify-center items-center'>
-    //   {/* Background Image */}
-    //   <img className='absolute top-0 left-0 self-center  object-cover z-0' src="firstrechargebg.png" alt="Background" />
-      
-    //   {/* Content Wrapper */}
-    //   <div className='relative z-10 flex w-full justify-between items-center'>
-    //     {/* Left Section */}
-    //     <div className="flex flex-col w-[60%] space-y-8">
-    //       <span className='text-[60px] font-bold leading-tight'>
-    //         Get 50% OFF on your First Recharge
-    //       </span>
-    //       <div className="flex space-x-4">
-    //         <img className='w-36' src="playstore.png" alt="Play Store" />
-    //         <img className='w-36' src="appstore.png" alt="App Store" />
-    //       </div>
-    //     </div>
-        
-    //     {/* Right Section */}
-    //     <div className="w-[30%]">
-    //       <img className='w-full' src="firstrechargeimage.png" alt="Offer" />
-    //     </div>
-    //   </div>
-    // </div>
-    <div className='lg:px-[100px] md:px-8 bg-[#111111] relative flex justify-center py-20'>
+    <>
+   
+    {
+      isLgScreen ?  ( <div className='lg:px-[100px] md:px-8 bg-[#111111] relative flex justify-center py-20'>
       <img className='w-full object-cover' src="firstrechargebg.png" alt="" />
       <div className="content flex justify-between items-center inset-0 lg:px-[160px] md:px-[80px] gap-16 absolute">
         <motion.div
@@ -72,7 +54,35 @@ function Firstrecharge() {
           </motion.div>
       </div>
        
-    </div>
+    </div> ) : (
+      <div className='px-[3px] text-[#d9d9d9] relative bg-[#111111] my-12 pt-6 mx-3 px-auto flex justify-center items-center'>
+        {/* Background Image */}
+        <img className='absolute top-0 left-0 self-center  object-cover z-0' src="firstrechargebg.png" alt="Background" />
+        
+        {/* Content Wrapper */}
+        <div className='relative z-10 flex flex-col w-full justify-center items-center'>
+          {/* Left Section */}
+          <div className="flex flex-col items-center space-y-4">
+            <span className='text-[22px] px-5 font-semibold  text-center leading-tight'>
+              Get 50% OFF on your First Recharge
+            </span>
+            <div className="flex space-x-4">
+              <img className='w-28' src="playstore.svg" alt="Play Store" />
+              <img className='w-28' src="appstore.svg" alt="App Store" />
+            </div>
+          </div>
+          
+          {/* Right Section */}
+          <div className="w-[70%] pt-4">
+            <img className='w-full' src="firstrechargeimage.svg" alt="Offer" />
+          </div>
+        </div>
+      </div>
+
+    )
+    }
+    </>
+   
   );
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa";
 import "../Faq/FAQ.css"
@@ -6,6 +6,15 @@ import "../Faq/FAQ.css"
 function FAQ() {
   // State to track the currently open FAQ
   const [openFAQ, setOpenFAQ] = useState(null);
+  const [isLgScreen, setIsLgScreen] = useState(window.innerWidth >= 1024);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLgScreen(window.innerWidth >= 1024);
+    };
+
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
   // Function to toggle a specific FAQ
   const toggleFAQ = (index) => {
@@ -47,37 +56,79 @@ function FAQ() {
   ];
 
   return (
-    <div className="lg:px-[100px] md:px-8 lg:py-40 md:py-10 bg-[#111111]">
-      <div className="heading text-left lg:text-[40px] md:text-[20px]">
+    <div 
+    // className={' bg-[#111111] ${ isLgScreen ? "px-[100px] py-40" :  "py-10 px-6" }'}>
+       className={`bg-[#111111] ${
+        isLgScreen ? "lg:px-[100px] lg:py-40" : "px-3 py-5"
+      }`} >
+     <div className={`heading text-left ${
+  isLgScreen ? "text-[40px]" : "text-[20px]"
+}`}>
         <span className="text-[#d9d9d9]">FAQs</span>
+
         <span className="text-[#808080]"> - All You Need to Know</span>
       </div>
       <div className="questions py-10">
         {faqs.map((faq, index) => (
+          // <div
+          //   key={index}
+          //   className={'bg-[#1f1f1f] rounded-[24px] mb-4 ${ 
+          //     isLgScreen ? "px-12 py-8" :"py-5 px-2" 
+          //   }'}
+          //    >
           <div
-            key={index}
-            className="bg-[#1f1f1f] px-12 lg:py-8 md:py-5 rounded-[24px] mb-4"
-          >
-            <div
-              className="que flex justify-between items-center text-[#d9d9d9] cursor-pointer"
-              onClick={() => toggleFAQ(index)}
-            >
-              <span className="lg:text-[28px] md:text-[24px]">{faq.question}</span>
-              {openFAQ === index ? (
-                <FaMinus className="w-8 h-8" />
-              ) : (
-                <FaPlus className="w-8 h-8" />
-              )}
-            </div>
+  key={index}
+  className={`bg-[#1f1f1f] rounded-[24px] mb-4 ${
+    isLgScreen ? "px-12 py-8" : "py-4 px-4"
+  }`}
+>
+
+<div
+  className="que flex justify-between items-center text-[#d9d9d9] cursor-pointer"
+  onClick={() => toggleFAQ(index)}
+>
+<span className={`lg:text-[28px] sm:text-[24px] ${
+  isLgScreen ? "w-[1100px]" : "w-[230px]"
+}`}>
+  {/* Content here */}
+
+
+  
+  {faq.question}</span>
+  {openFAQ === index ? (
+    <FaMinus className={`${
+      isLgScreen ? "w-8 h-8" : "w-4 h-4"
+    }`} />
+  ) : (
+    <FaPlus className={`${
+      isLgScreen ? "w-8 h-8" : "w-4 h-4"
+    }`} />
+  )}
+</div>
+
 
           {/* Answer Section */}
-          <div
+          {/* <div
               className={`ans ${
                 openFAQ === index ? "ans-open" : ""
               } mt-8 lg:text-[24px] md:text-[20px] text-[#d9d9d9]`}
             >
               {faq.answer}
-            </div>
+            </div> */}
+            <div
+  className={`ans ${
+    openFAQ === index ? "ans-open" : ""
+  }  text-[#d9d9d9] ${
+    isLgScreen ? "lg:text-[24px] mt-8" : "md:text-[20px] mt-4"
+  }`}
+>
+  {openFAQ === index ? (
+    <span className={`${isLgScreen ? "lg:text-[24px]" : "text-[14px]"}`}>
+      {faq.answer}
+    </span>
+  ) : null}
+</div>
+
           </div>
         ))}
       </div>

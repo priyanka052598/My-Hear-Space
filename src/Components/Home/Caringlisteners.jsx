@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion"; // Ensure you have this library installed
+
 
 function Caringlisteners() {
   const navigate=useNavigate();
+  const [isLgScreen, setIsLgScreen] = useState(window.innerWidth >= 1024);
+
+  useEffect(() => {
+    const handleResize = () => setIsLgScreen(window.innerWidth >= 1024);
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const handleViewOurListeners=()=>{
     navigate("/OurListeners")
 
@@ -17,7 +27,9 @@ function Caringlisteners() {
 
       {/* Card Section */}
       <div className="cards flex justify-center lg:px-0 md:px-8 sm:px-4 gap-[24px] py-[80px]">
-        <div className="card relative">
+        {isLgScreen ? (
+          <>
+            <div className="card relative">
           {/* Cardframe Image */}
           <img
             src="caringlistenerframe.svg"
@@ -131,6 +143,24 @@ function Caringlisteners() {
             </div>
           </div>
         </div>
+          </>
+        ) : (
+          <>
+           {/* <motion.div
+          key={currentIndex}
+          transition={{ duration: 1.0 }}
+          initial={{ x: 20 }}
+          animate={{ x: 0 }}
+          className="card relative"
+        >
+
+
+          </motion.div> */}
+          </>
+
+        )
+      }
+      
       </div>
 
       {/* View All Listeners Button */}
