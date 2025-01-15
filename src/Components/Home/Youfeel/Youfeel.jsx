@@ -201,19 +201,19 @@ function Youfeel() {
         <motion.div
           key={currentIndex}
           transition={{ duration: 1.0 }}
-          initial={{ x: 20 }}
-          animate={{ x: 0 }}
+          initial={{ x: 24 }}
+          animate={{ x: 12 }}
           className="card relative"
         >
-          <img src="Cardframe.png" alt="Card Frame" className="w-[80%] mx-5 h-[100%] object-cover" />
+          <img src="sm-youfeel.png" alt="Card Frame" className="w-[80%] mx-5 h-[100%] object-cover" />
           <div>
             <img
               src={currentTestimonial.img}
               alt="Feel Image"
-              className="absolute top-[12%] left-[45%] transform -translate-x-1/2 w-[50%] h-auto"
+              className="absolute top-[6%] left-[45%] transform -translate-x-1/2 w-[50%] h-auto"
             />
           </div>
-          <h3 className="absolute w-[75%] bottom-[13%] px-3 left-[45%] transform -translate-x-1/2 text-[#d9d9d9] text-[18px] text-center font-semibold">
+          <h3 className="absolute w-[75%] bottom-[7%] px-3 left-[45%] transform -translate-x-1/2 text-[#d9d9d9] text-[18px] text-center font-semibold">
             {currentTestimonial.text}
           </h3>
         </motion.div>
@@ -227,7 +227,7 @@ function Youfeel() {
     } `}>
       {/* Heading Section */}
       <div className={` ${
-        isLgScreen ? "text-[60px]" : "text-[27px] pb-10" }  flex flex-col justify-between items-center font-semibold`}>
+        isLgScreen ? "text-[60px] pb-[80px]" : "text-[26px] pb-10" }  flex  flex-col justify-between items-center font-semibold`}>
         <span className="text-[#808080]">Do you feel you are the</span>
         <span className="text-[#d9d9d9]">Only One?</span>
       </div>

@@ -10,6 +10,17 @@ import { motion } from "motion/react"
 
 function Appfeatured() {
     const [currentIndex, setCurrentIndex] = useState(1);
+ const [isLgScreen, setIsLgScreen] = useState(window.innerWidth >= 1024);
+
+  // Update the screen size state on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLgScreen(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
     let data = [
         {
@@ -38,18 +49,7 @@ function Appfeatured() {
         },
     ];
 
-    // const handleChange = (index) => {
-    //     if (data.length==index) {
-    //         console.log("Index",index)
-    //         setCurrentIndex(1)
-            
-    //     }
-    //     else{
-    //         setCurrentIndex(index +1);
-    //     }
-   
-
-    // };
+    
 
     const handleSlideChange = (index) => {
         if (index==4) { setCurrentIndex(1)
@@ -83,8 +83,13 @@ function Appfeatured() {
          viewport={{
            once: true, // Trigger animation only once
            amount: 0.5, // Specifies the amount of the element that must be in view
-         }} className="py-40 lg:px-[100px] md:px-8 bg-[#111111]">
-            <div className="lg:text-[60px] md:text-[40px] pb-[80px] flex justify-center items-center gap-4 font-semibold">
+         }} className={` ${
+            isLgScreen ? "py-40" : "py-20"}
+         lg:px-[100px] md:px-8 bg-[#111111]`}>
+            <div className={`${
+                isLgScreen ? "text-[60px] gap-4 pb-[80px]" : "text-[27px] gap-2 pb-[30px] "
+            }
+                   flex justify-center items-center  font-semibold`}>
                 <span className="text-[#808080]">Our App is </span>
                 <span className="text-[#d9d9d9]">Featured In</span>
             </div>
@@ -104,25 +109,39 @@ function Appfeatured() {
                 // index={currentIndex}
             >
                 {data.map((item, index) => (  
-                    <div key={index} className="flex  bg-[#1f1f1f] mx-5 lg:h-[570px] md:h-[270px] overflow-hidden  rounded-[40px]   ">
-                        <div className="left   flex flex-col py-5 lg:w-[60%] md:w-[60%]  lg:px-10  md:px-6 overflow-hidden ">
-                            <h1 className="font-bold  lg:text-[80px] md:text-[40px] text-[#464646]">
-                                {item.number}
-                            </h1>
-                            <h2 className="font-semibold lg:py-7 md:py-3 text-[#d9d9d9] lg:text-[48px] md:text-[24px]">
-                                {item.title}
-                            </h2>
-                            <p className="font-normal text-[#d9d9d9] lg:text-[24px] md:text-[12px]">
-                                {item.decs}
-                            </p>
-                        </div>
-                        <div className="right lg:w-[50%] md:w-[50%]   object-cover  ">
+                    <div key={index} className={` ${
+                        isLgScreen ? "flex rounded-[40px] h-[570px]" : " flex flex-col rounded-[20px] h-[550px]" } bg-[#1f1f1f] mx-5 overflow-hidden     `}>
+                            <div className={`right ${
+                                isLgScreen ? "w-[50%]" : "w-full" }
+                              } md:w-[50%]   object-cover  `}>
                             <img
-                                className="   "
+                                className={` ${
+                                    isLgScreen ? "" : " w-full h-48" }
+                                }`}
                                 src={item.img}
                                 alt={item.title}
                             />
                         </div>
+                        <div className={`left  ${
+                            isLgScreen ? "flex flex-col w-[60%] px-10" : "flex flex-col w-full px-3" }
+                         py-5 overflow-hidden`} >
+                             
+                            <h1 className={`font-bold   ${isLgScreen ? "text-[80px] " : " text-[26px]"   }   text-[#464646]`}>
+                                {item.number}
+                            </h1>
+                            <h2 className={`font-semibold  text-[#d9d9d9] ${
+                                isLgScreen ? "text-[48px] py-7" : "text-[28px] py-3" }
+                            }  `}>
+                                {item.title}
+                            </h2>
+                            <p className={`font-normal text-[#d9d9d9] ${
+                                isLgScreen ? "text-[24px]" : "text-[16px]" }
+                            }  `}>
+                                {item.decs}
+                            </p>
+                        </div>
+                        
+                      
                     </div>
                 ))}
             </Slide>
@@ -130,7 +149,9 @@ function Appfeatured() {
             </div> 
 
             {/* Custom Dot Indicators */}
-            <div className="flex justify-center items-center gap-2 mt-16">
+            <div className={`flex justify-center items-center gap-2  ${
+                isLgScreen ? "mt-16" : "mt-8" }
+                `}>
                 {data.map((_, index) => (
                     <div
                         key={index}

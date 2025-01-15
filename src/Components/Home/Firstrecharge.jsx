@@ -55,9 +55,9 @@ function Firstrecharge() {
       </div>
        
     </div> ) : (
-      <div className='px-[3px] text-[#d9d9d9] relative bg-[#111111] my-12 pt-6 mx-3 px-auto flex justify-center items-center'>
+      <div className='px-[3px] text-[#d9d9d9] relative bg-[#111111] my-12 pt-6 mx-3  rounded-2xl px-auto flex justify-center items-center'>
         {/* Background Image */}
-        <img className='absolute top-0 left-0 self-center  object-cover z-0' src="firstrechargebg.png" alt="Background" />
+        <img className='absolute top-0 left-0 self-center rounded-xl  object-cover z-0' src="firstrechargebg.png" alt="Background" />
         
         {/* Content Wrapper */}
         <div className='relative z-10 flex flex-col w-full justify-center items-center'>
