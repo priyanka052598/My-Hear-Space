@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Blogsdesc() {
+      const [isLgScreen, setIsLgScreen] = useState(window.innerWidth >= 1024);
+  
   return (
-    <div className='w-[60%] py-[100px] text-[#d9d9d9] flex flex-col justify-center  mx-auto gap-[60px]'>
-        <img className='w-full h-[550px] rounded-[40px]' src="supportiveblog.png" alt="" />
+    <div className={`lg:w-[60%] ${isLgScreen ? "px-0" : "px-5" } py-[100px] text-[#d9d9d9] flex flex-col justify-center  mx-auto gap-[60px]`}>
+        <img className='w-full h-[550px] rounded-[40px] object-cover' src="supportiveblog.png" alt="" />
         <div className="headings flex flex-col text-left   ">
           <span className="category text-[24px] font-medium pb-[16px]">Relationship</span>
           <span className='text-[40px] font-bold' >3 Main Problems In A Long Distance Relationship</span>

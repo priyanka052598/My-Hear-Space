@@ -60,7 +60,7 @@ function SafeSpace() {
       </div>
       <div className="btn lg:text-[28px] md:text-[14px] w-fit text-center bg-[#111111] hover:bg-[#d9d9d9] text-[#d9d9d9] hover:shadow-[0_0_30px_15px_rgba(217,217,217,0.2)] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] hover:text-[#111111] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full bg-gradient-to-t from-transparent to-[#d9d9d9]">
         <div
-          className="bg-[#111111] hover:bg-[#d9d9d9] lg:px-10 sm:px-3  lg:py-3 sm:py-1 rounded-full"
+          className="bg-[#111111] hover:bg-[#d9d9d9] px-10 py-3  rounded-full"
           style={{ backgroundClip: 'padding-box' }}
         >
           Connect Now
