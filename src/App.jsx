@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Listenerdesc from './Components/Listnerdesc.jsx/Listenerdesc'
 import ScrollToTop from './Components/Scrolltotop/Scrolltotop'
 import Blogsdescription from './Pages/Blogsdescription'
+import BecomeListener from './Pages/BecomeListener'
 
 
 
@@ -31,6 +32,7 @@ function App() {
 <Route path='/OurBlogs' element={<OurBlogs/>} />
 <Route path='/:Ourlistener' element={<Listenersdescription/>} />
 <Route path='/Blogsdesc' element={<Blogsdescription/>} />
+<Route path='/BecomeListener' element={<BecomeListener/>} />
    {/* <OurListeners/> */}
   {/* <OurBlogs/> */}
   {/* <Listenersdescription/> */}

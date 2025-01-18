@@ -49,13 +49,22 @@ function Header() {
                         >
                             Blogs
                         </NavLink>
+                        <NavLink
+                            to="/BecomeListener"
+                            className={({ isActive }) =>
+                                `px-[9px] pb-[4px] ${isActive ? 'text-white border-b-[1px] border-white' : 'text-[#808080]'}`
+                            }
+                        >
+                            Become a Listener
+                        </NavLink>
+                        
                     </div>
                     <div className="hidden md:flex btn">
                         <button
                             className="text-[18px] border text-[#d9d9d9] hover:bg-[#d9d9d9] hover:text-[#111111] border-white rounded-[40px] px-7 py-[7px]"
                             type="button"
                         >
-                            Become a Listener
+                            Download App
                         </button>
                     </div>
                     <div className="md:hidden">
@@ -98,13 +107,23 @@ function Header() {
                     >
                         Blogs
                     </NavLink>
+                    <NavLink
+                            to="/BecomeListener"
+                            className={({ isActive }) =>
+                            `block px-4 py-2 text-[18px] ${isActive ? 'text-white' : 'text-[#808080]'}`
+                        }
+                        onClick={toggleSidebar}
+                    >
+                                                Become a Listener
+
+                    </NavLink>
                     <button
                     
                         className="block text-[18px] border text-[#d9d9d9] hover:bg-[#d9d9d9] hover:text-[#111111] border-white rounded-[40px] px-4 py-[7px] mt-4 mx-4"
                         type="button"
                         onClick={toggleSidebar}
                     >
-                        Become a Listener
+                        Download App
                     </button>
                 </nav>
             </div>

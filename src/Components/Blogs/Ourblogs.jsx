@@ -44,11 +44,11 @@ function Ourblogs() {
             </div>
             <div className={`below  ${isLgScreen ? "flex gap-[24px]  py-[80px]" : "flex flex-col gap-[60px] py-[40px]" }  justify-center items-center  `}>
               {blogData.map((blog, index)=>
-  <div key={index} className={`card rounded-[24px] ${isLgScreen ? "w-[385px]" : "w-[355px]" } h-[637px] border-[1px] overflow-hidden border-[#464646]`}>
+  <div key={index} className={`card rounded-[24px] ${isLgScreen ? "w-[385px] h-[637px]" : "w-[290px] h-[530px]" } border-[1px] overflow-hidden border-[#464646]`}>
   <img  src={blog.image} alt="" />
-  <div className="bootm text-[#d9d9d9] px-[24px] py-[40px]">
-  <h2 className='text-[24px] pb-[16px] font-bold'>{blog.title}</h2>
-  <span className='text-[18px]'>{blog.description}</span>
+  <div className={`bootm text-[#d9d9d9]  ${isLgScreen ? "px-[24px] py-[40px]" : "px-3 py-[30px]" } `}>
+  <h2 className={` ${isLgScreen ? "text-[24px]" : "text-[20px]" } pb-[16px] font-bold`}>{blog.title}</h2>
+  <span className={`${isLgScreen ? "text-[18px]" : "text-[16px]" }`}>{blog.description}</span>
   <div className='pt-[40px] flex justify-between items-center'>
       <span className='text-[20px]'>{blog.category}</span>
       <div onClick={handleViewBlogDesc} className="btn text-[28px] bg-[#111111] hover:bg-[#d9d9d9] text-[#d9d9d9]  hover:shadow-[0_0_30px_15px_rgba(217,217,217,0.2)]  shadow-[0_0_17px_7px_rgba(217,217,217,0.2)]  hover:text-[#111111] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full  bg-gradient-to-t from-transparent to-[#d9d9d9]">
