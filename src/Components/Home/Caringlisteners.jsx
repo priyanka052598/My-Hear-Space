@@ -76,7 +76,7 @@ function Caringlisteners() {
 
   return (
     <div className={`bg-[#111111] ${isLgScreen ? "py-40" : "py-20"} flex flex-col items-center`}>
-      <div className={`${isLgScreen ? "text-[60px] gap-4" : "text-[27px] gap-2"} flex justify-center items-center font-semibold`}>
+      <div className={`${isLgScreen ? "text-[60px] gap-4 flex" : "text-[26px] gap-2 flex flex-col"}   justify-center items-center font-semibold`}>
         <span className="text-[#808080]">Meet Our Caring </span>
         <span className="text-[#d9d9d9]">Listeners</span>
       </div>

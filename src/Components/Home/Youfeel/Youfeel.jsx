@@ -201,7 +201,7 @@ function Youfeel() {
         <motion.div
           key={currentIndex}
           transition={{ duration: 1.0 }}
-          initial={{ x: 24 }}
+          initial={{ x: 40 }}
           animate={{ x: 12 }}
           className="card relative"
         >

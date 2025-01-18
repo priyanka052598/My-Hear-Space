@@ -18,7 +18,7 @@ function Ourlistener() {
       rating: 4.5,
       reviews: 20,
       experience: "150 Hrs",
-      description: "I ha ve served the nation fffe lorem45  lorem45 veve served the nation in the lorem45ve served the nation in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
+      description: "I ha ve served the nation ffin the lorem45ve served the nation in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
       image: "profile.png",
     },
     {
@@ -28,7 +28,7 @@ function Ourlistener() {
       rating: 4.5,
       reviews: 20,
       experience: "150 Hrs",
-      description: "I ha ve served the nation in the lorem45  lorem45 veve served the nation in the lorem45ve served the nation in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
+      description: "I ha ve served the nation in the lorin the lorem45ve served the nation in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
       image: "profile.png",
     },
     {
@@ -38,7 +38,7 @@ function Ourlistener() {
       rating: 4.5,
       reviews: 20,
       experience: "150 Hrs",
-      description: "I ha ve served the nation in the lorem45  lorem45 veve served the nation in the lorem45ve served the nation in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
+      description: "I ha ve served thve served the nation in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
       image: "profile.png",
     },
     {
@@ -58,7 +58,7 @@ function Ourlistener() {
       rating: 4.5,
       reviews: 20,
       experience: "150 Hrs",
-      description: "I ha ve served the nation in the lorem45  lorem45 veve served the nation in the lorem45ve served the nation in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
+      description: "I ha ve servedn in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
       image: "profile.png",
     },
     {
@@ -68,7 +68,7 @@ function Ourlistener() {
       rating: 4.5,
       reviews: 20,
       experience: "150 Hrs",
-      description: "I ha ve served the nation in the lorem45  lorem45 veve served the nation in the lorem45ve served the nation in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
+      description: "I ha ve servon in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
       image: "profile.png",
     },
     // Add more listener objects as needed
@@ -76,23 +76,23 @@ function Ourlistener() {
   
 
   return (
-    <div className='bg-[#111111] flex flex-col  justify-center items-center  px-10  '>
-      <div className={`heading ${isLgScreen ? "text-[60px] flex py-20 gap-4" : "text-[38px] flex flex-col py-16" }   justify-center items-center   font-semibold`}>
+    <div className='bg-[#111111] flex flex-col  justify-center items-center  px  '>
+      <div className={`heading ${isLgScreen ? "text-[60px] flex py-20 gap-4" : "text-[38px] flex flex-col py-12 " }   justify-center items-center   font-semibold`}>
         <span className="text-[#808080]">Meet Our Caring</span>
         <span className="text-[#d9d9d9]">Listeners</span>
       </div>
       <div className="cards pb-20 flex flex-wrap justify-center gap-[24px]">
         {listeners.map((listener, index) => (
-          <div key={index} className="card rounded-[16px] bg-[#1f1f1f] py-[40px] lg:px-[24px] sm: px-5 lg:w-[411px] sm: w-[350px] h-[560px] ">
+          <div key={index} className={`card rounded-[16px] bg-[#1f1f1f] py-[40px]   ${isLgScreen ? "px-[24px] w-[411px]" : "px-3 w-[300px]" }  h-[560px] `}>
             <div className="upper gap-[28px] flex">
               <div className='left flex flex-col justify-center items-center'>
                 <img
                   src={listener.image}
                   alt={`${listener.name}'s Image`}
-                  className={`top-[8%]  ${isLgScreen ? "w-[140px]" : "w-[115px]" }
+                  className={`top-[8%]  ${isLgScreen ? "w-[140px]" : "w-[100px]" }
                      h-auto`}
                 />
-                <div className={` ${ isLgScreen ? "py-2 w-[125px] text-[18px]" : "py-1 w-[100px] text-[16px]" } mt-[-12px]  text-center font-normal bg-[#464646] text-[#d9d9d9]  rounded-[40px]`}>
+                <div className={` ${ isLgScreen ? "py-2 w-[125px] text-[18px]" : "py-1 w-[90px] text-[14px]" } mt-[-12px]  text-center font-normal bg-[#464646] text-[#d9d9d9]  rounded-[40px]`}>
                   F - {listener.age}
                 </div>
               </div>
@@ -113,8 +113,8 @@ function Ourlistener() {
             </div>
             <div className="below flex justify-between items-center">
               <span className='text-[20px] font-medium text-[#d9d9d9]'>Exp-{listener.experience}</span>
-              <div onClick={handleViewListenerDesc} className="text-[#111111] text-[18px] bg-[#d9d9d9] hover:bg-[#d9d9d9] hover:shadow-[0_0_28px_13px_rgba(217,217,217,0.2)] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] hover:text-[#111111] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full bg-gradient-to-t from-transparent to-[#d9d9d9]">
-                <button className="px-6 py-3 rounded-full" style={{ backgroundClip: 'padding-box' }}>
+              <div onClick={handleViewListenerDesc} className={`text-[#111111] ${isLgScreen ?"text-[18px] px-[2px] py-[2px]" :" text-[15px] px-[2px]" } bg-[#d9d9d9] hover:bg-[#d9d9d9] hover:shadow-[0_0_28px_13px_rgba(217,217,217,0.2)] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] hover:text-[#111111] font-semibold  duration-300 cursor-pointer rounded-full bg-gradient-to-t from-transparent to-[#d9d9d9]`}>
+                <button className={` ${isLgScreen ? "px-6 py-3" : "px-4 py-1" }  rounded-full`} style={{ backgroundClip: 'padding-box' }}>
                   Connect Now
                 </button>
               </div>
