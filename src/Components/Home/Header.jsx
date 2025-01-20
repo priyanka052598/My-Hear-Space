@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross2 } from "react-icons/rx";
 
@@ -8,17 +8,23 @@ import { RxCross2 } from "react-icons/rx";
 function Header() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isLgScreen, setIsLgScreen] = useState(window.innerWidth >= 1024);
+    const navigate =useNavigate ()
+    
 
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
     };
+    const handleviewHomepage = () => {
+        navigate ("/")
+
+    }
 
     return (
         <>
             <div className="black-overlay"></div>
             <div className="w-full bg-[#1f1f1f] lg:px-[100px] md:px-8 lg:py-1 pt-2 border-b-[1px] border-[#808080] font-sans font-medium flex justify-between items-center">
-                <div className="left">
+                <div onClick={handleviewHomepage}  className="left cursor-pointer">
                     <img className={` ${
                         isLgScreen ? "w-20" : "w-16 ml-3 py-2" }
                     }`} src="Logo.svg" alt="Logo" />
@@ -117,14 +123,25 @@ function Header() {
                                                 Become a Listener
 
                     </NavLink>
-                    <button
+                    <div onClick={toggleSidebar} className="playstore mt-4 text-white w-[80%] flex justify-start items-center border-[1px] px-3 py-[5px] rounded-[6px] border-white mx-4">
+                        <img className='w-6' src="sm-playstore.svg" alt="" srcset="" />
+                    <span className='pl-3 text-[18px]'>                        Download App
+                    </span>
+
+                    </div>
+                    <div onClick={toggleSidebar} className="playstore mt-4 text-white w-[80%] flex justify-start items-center border-[1px] px-3 py-[5px] rounded-[6px] border-white mx-4">
+                        <img className='w-6' src="sm-apple.svg" alt="" srcset="" />
+                    <span className='pl-3 text-[18px]'>                        Download App
+                    </span>
+
+                    </div>
+                    {/* <button
                     
                         className="block text-[18px] border text-[#d9d9d9] hover:bg-[#d9d9d9] hover:text-[#111111] border-white rounded-[40px] px-4 py-[7px] mt-4 mx-4"
                         type="button"
                         onClick={toggleSidebar}
                     >
-                        Download App
-                    </button>
+                    </button> */}
                 </nav>
             </div>
         </>

@@ -131,6 +131,8 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from "framer-motion"; // Ensure you have this library installed
 import "./Youfeel.css";
+import Slider from "react-slick";
+
 
 function Youfeel() {
   const [isLgScreen, setIsLgScreen] = useState(window.innerWidth >= 1024);
@@ -138,16 +140,16 @@ function Youfeel() {
 
   const testimonials = [
     {
-      text: "43% of Indians are Facing Loneliness!",
-      img: "feel-1-image.png",
+      text: "43% of Indian’s are Facing Loneliness!",
+      img: "feel-1-img.svg",
     },
     {
-      text: "44% of Indians are Facing Loneliness!",
-      img: "feel-1-image.png",
+      text: "46.45% of Indian’s are Facing Breakups",
+      img: "feel-2-img.svg",
     },
     {
-      text: "45% of Indians are Facing Loneliness!",
-      img: "feel-1-image.png",
+      text: "68% of Indian’s are Facing Relationship issues",
+      img: "feel-3-img.svg",
     },
     // Add more testimonials if needed
   ];
@@ -169,6 +171,17 @@ function Youfeel() {
     }
   }, [isLgScreen, testimonials.length]);
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
+
+  
+
   const renderCards = () => {
     if (isLgScreen) {
       // Render all cards for large screens
@@ -176,7 +189,7 @@ function Youfeel() {
         <motion.div
           key={index}
           transition={{ duration: 1.1 }}
-          initial={{ x: index === 0 ? 300 : -300 }}
+          initial={{ x: index === 0 ? 100 : -100 }}
           whileInView={{ x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           className="card relative"
@@ -189,7 +202,7 @@ function Youfeel() {
               className="absolute top-[8%] left-1/2 transform -translate-x-1/2 w-[80%] h-auto"
             />
           </div>
-          <h3 className="absolute w-[75%] bottom-[15%] left-1/2 transform -translate-x-1/2 text-[#d9d9d9] lg:text-[28px] md:text-[18px] text-center font-semibold">
+          <h3 className="absolute w-[80%] top-[72%] left-1/2 transform -translate-x-1/2 text-[#d9d9d9] lg:text-[28px] md:text-[18px] text-center font-semibold">
             {testimonial.text}
           </h3>
         </motion.div>
@@ -200,20 +213,22 @@ function Youfeel() {
       return (
         <motion.div
           key={currentIndex}
-          transition={{ duration: 1.0 }}
-          initial={{ x: 40 }}
-          animate={{ x: 12 }}
-          className="card relative"
+          transition={{ duration: 0.6 }}
+          initial={{ x: "15%" }} // Start off-screen to the right
+          animate={{ x: "0%" }} // Slide to the center
+          exit={{ x: "-15%" }} // Slide off-screen to the left
+          className="card relative mx-auto"
+          // className="card relative"
         >
-          <img src="sm-youfeel.png" alt="Card Frame" className="w-[80%] mx-5 h-[100%] object-cover" />
+          <img src="sm-youfeel.png" alt="Card Frame" className="w-[80%] self-center mx-auto h-[100%] object-cover" />
           <div>
             <img
               src={currentTestimonial.img}
               alt="Feel Image"
-              className="absolute top-[6%] left-[45%] transform -translate-x-1/2 w-[50%] h-auto"
+              className="absolute top-[6%] left-[50%] transform -translate-x-1/2 w-[50%] h-auto"
             />
           </div>
-          <h3 className="absolute w-[75%] bottom-[7%] px-3 left-[45%] transform -translate-x-1/2 text-[#d9d9d9] text-[18px] text-center font-semibold">
+          <h3 className="absolute w-[75%] bottom-[7%] px-3 left-[50%] transform -translate-x-1/2 text-[#d9d9d9] text-[18px] text-center font-semibold">
             {currentTestimonial.text}
           </h3>
         </motion.div>

@@ -68,7 +68,8 @@ function Appfeatured() {
     // }, []);
 
     return (
-        <motion.div        
+        <motion.div  
+              
         transition={{
            duration: 2, // Specify the duration of the animation
          }}
@@ -116,7 +117,7 @@ function Appfeatured() {
                               } md:w-[50%]   object-cover  `}>
                             <img
                                 className={` ${
-                                    isLgScreen ? "" : " w-full h-48" }
+                                    isLgScreen ? "w-full h-full object-cover" : " w-full h-48 object-cover" }
                                 }`}
                                 src={item.img}
                                 alt={item.title}

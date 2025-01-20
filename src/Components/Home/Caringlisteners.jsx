@@ -8,9 +8,9 @@ function Caringlisteners() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const listeners = [
-    { bgimage: "caringlistenerframe.svg", name: "Simran", age: 26, description: "I started dating a guy when I was young, it went on for 4 long years. Since the beginning of the relationship... Read More" },
-    { bgimage: "caringlistenerframe.svg", name: "Another Listener", age: 30, description: "Another started dating a guy when I was young, it went on for 4 long years. Since story here... Read More" },
-    { bgimage: "caringlistenerframe.svg", name: "An Listener", age: 30, description: "Another story here.. started dating a guy when I was young, it went on for 4 long years. Since. Read More" }
+    { bgimage: "caringlistenerframe.svg", profile:"profile.png", name: "Mohit", age: 26, description: "I started dating a guy when I was young, it went on for 4 long years. Since the beginning of the relationship... Read More" },
+    { bgimage: "caringlistenerframe.svg", profile: "profile-2-img.png", name: " Simran", age: 30, description: "Another started dating a guy when I was young, it went on for 4 long years. Since story here... Read More" },
+    { bgimage: "caringlistenerframe.svg",  profile: "profile-3-img.png",  name: " Anushka", age: 30, description: "Another story here.. started dating a guy when I was young, it went on for 4 long years. Since. Read More" }
     // Add more listener objects as needed
   ];
 
@@ -41,7 +41,7 @@ function Caringlisteners() {
         <div key={index} className="card relative">
           <img src={listener.bgimage} alt="Card Frame" className="w-full h-full object-cover" />
           <div>
-            <img src="profile.png" alt="Feel Image" className="absolute top-[8%] left-1/2 transform -translate-x-1/2 w-[50%] h-auto" />
+            <img src={listener.profile} alt="Feel Image" className="absolute top-[8%] left-1/2 transform -translate-x-1/2 w-[50%] h-auto" />
             <div className="absolute top-[34%] left-1/2 transform -translate-x-1/2 lg:text-[18px] md:text-[12px] font-normal bg-[#464646] text-[#d9d9d9] lg:px-7 md:px-4 lg:py-2 md:py-1 rounded-[40px]">
               F - {listener.age} yrs
             </div>
@@ -56,10 +56,20 @@ function Caringlisteners() {
     } else {
       const currentListener = listeners[currentIndex];
       return (
-        <motion.div key={currentIndex} className="card relative" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <motion.div 
+        key={currentIndex} 
+        className="card relative" 
+        // initial={{ opacity: 0 }} 
+        // animate={{ opacity: 1 }} 
+        // exit={{ opacity: 0 }}
+        transition={{ duration: 0.6 }}
+        initial={{ x: "15%" }} // Start off-screen to the right
+        animate={{ x: "0%" }} // Slide to the center
+        exit={{ x: "-15%" }} // Slide off-screen to the left
+        >
           <img src="sm-ourlistener-bg.svg" alt="Card Frame" className="w-[95%] mx-auto h-[100%] object-cover" />
           <div>
-            <img src="profile.png" alt="Feel Image" className="absolute top-[6%] left-[50%] transform -translate-x-1/2 w-[40%] h-auto" />
+            <img src={currentListener.profile}alt="Feel Image" className="absolute top-[6%] left-[50%] transform -translate-x-1/2 w-[40%] h-auto" />
             <div className="absolute top-[34%] left-[50%] transform -translate-x-1/2 text-[12px] font-normal bg-[#464646] text-[#d9d9d9] px-4 py-1 rounded-[40px]">
               F - {currentListener.age} yrs
             </div>
