@@ -38,7 +38,15 @@ function Caringlisteners() {
   const renderCards = () => {
     if (isLgScreen) {
       return listeners.map((listener, index) => (
-        <div key={index} className="card relative">
+          <motion.div
+                  key={index}
+                  transition={{ duration: 1.1 }}
+                  initial={{ x: index === 0 ? 100 : -100 }}
+                  whileInView={{ x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="card relative"
+                >
+                   {/* key={index} className="card relative"> */}
           <img src={listener.bgimage} alt="Card Frame" className="w-full h-full object-cover" />
           <div>
             <img src={listener.profile} alt="Feel Image" className="absolute top-[8%] left-1/2 transform -translate-x-1/2 w-[50%] h-auto" />
@@ -51,7 +59,7 @@ function Caringlisteners() {
           <div className="absolute bottom-[5%] left-1/2 transform -translate-x-1/2 text-[#111111] lg:text-[18px] md:text-[12px] bg-[#d9d9d9] hover:bg-[#d9d9d9] hover:shadow-[0_0_28px_13px_rgba(217,217,217,0.2)] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] hover:text-[#111111] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full bg-gradient-to-t from-transparent to-[#d9d9d9]">
             <button className="lg:px-6 md:px-2 lg:py-3 md:py-1 rounded-full" style={{ backgroundClip: 'padding-box' }}>Connect Now</button>
           </div>
-        </div>
+        </motion.div>
       ));
     } else {
       const currentListener = listeners[currentIndex];
