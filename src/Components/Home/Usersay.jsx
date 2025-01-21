@@ -129,9 +129,9 @@ function Usersay() {
         ) : (
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 5 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
+            exit={{ opacity: 0, x: -5 }}
             transition={{ duration: 0.5 }}
             className="flex flex-col justify-center py-12 gap-7 rounded-[24px] items-center w-[90%] bg-[#464646]"
           >

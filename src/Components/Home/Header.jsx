@@ -26,7 +26,7 @@ function Header() {
             <div className="w-full bg-[#1f1f1f] lg:px-[100px] md:px-8 lg:py-1 pt-2 border-b-[1px] border-[#808080] font-sans font-medium flex justify-between items-center">
                 <div onClick={handleviewHomepage}  className="left cursor-pointer">
                     <img className={` ${
-                        isLgScreen ? "w-20" : "w-16 ml-3 py-2" }
+                        isLgScreen ? "w-20" : "w-[55px] ml-3 py-2" }
                     }`} src="Logo.svg" alt="Logo" />
                 </div>
                 <div className="right flex justify-between items-center lg:gap-[40px] md:gap-[20px]">
@@ -74,7 +74,7 @@ function Header() {
                         </button>
                     </div>
                     <div className="md:hidden">
-                        <button onClick={toggleSidebar} className="text-white mr-8 p-2 bg-[#464646] rounded-full text-[30px]"><RxHamburgerMenu/></button>
+                        <button onClick={toggleSidebar} className="text-white mr-6 p-2 bg-[#464646] rounded-full text-[25px]"><RxHamburgerMenu/></button>
                     </div>
                 </div>
             </div>
@@ -123,7 +123,7 @@ function Header() {
                                                 Become a Listener
 
                     </NavLink>
-                    <div onClick={toggleSidebar} className="playstore mt-4 text-white w-[80%] flex justify-start items-center border-[1px] px-3 py-[5px] rounded-[6px] border-white mx-4">
+                    {/* <div onClick={toggleSidebar} className="playstore mt-4 text-white w-[80%] flex justify-start items-center border-[1px] px-3 py-[5px] rounded-[6px] border-white mx-4">
                         <img className='w-6' src="sm-playstore.svg" alt="" srcset="" />
                     <span className='pl-3 text-[18px]'>                        Download App
                     </span>
@@ -134,7 +134,7 @@ function Header() {
                     <span className='pl-3 text-[18px]'>                        Download App
                     </span>
 
-                    </div>
+                    </div> */}
                     {/* <button
                     
                         className="block text-[18px] border text-[#d9d9d9] hover:bg-[#d9d9d9] hover:text-[#111111] border-white rounded-[40px] px-4 py-[7px] mt-4 mx-4"

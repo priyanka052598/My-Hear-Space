@@ -188,7 +188,7 @@ function Youfeel() {
       return testimonials.map((testimonial, index) => (
         <motion.div
           key={index}
-          transition={{ duration: 1.1 }}
+          transition={{ duration: 1.3 }}
           initial={{ x: index === 0 ? 100 : -100 }}
           whileInView={{ x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -214,9 +214,9 @@ function Youfeel() {
         <motion.div
           key={currentIndex}
           transition={{ duration: 0.6 }}
-          initial={{ x: "15%" }} // Start off-screen to the right
-          animate={{ x: "0%" }} // Slide to the center
-          exit={{ x: "-15%" }} // Slide off-screen to the left
+          initial={{ x: "px" }} // Start off-screen to the right
+          animate={{ x: "0" }} // Slide to the center
+          exit={{ x: "-" }} // Slide off-screen to the left
           className="card relative mx-auto"
           // className="card relative"
         >

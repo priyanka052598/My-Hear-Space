@@ -54,7 +54,7 @@ function Oursupprtiveblogs() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.5 }}
       className={`${
-        isLgScreen ? "py-40" : "py-10 pb-20" }  flex flex-col justify-center items-center bg-[#111111]`} >
+        isLgScreen ? "pb-28 pt-20" : "py-10 pb-20" }  flex flex-col justify-center items-center bg-[#111111]`} >
       <div className={` ${
         isLgScreen ? "text-[60px]" : "text-[27px]" } flex justify-center items-center gap-4 font-semibold`}>
         <span className="text-[#808080]">Our</span>

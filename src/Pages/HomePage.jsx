@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Header from '../Components/Home/Header'
 import SafeSpace from '../Components/Home/SafeSpace/SafeSpace'
 import Youfeel from '../Components/Home/Youfeel/Youfeel'
@@ -15,8 +15,29 @@ import { GoArrowUp } from "react-icons/go";
 
 
 
+
 function HomePage() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+    const [isLgScreen, setIsLgScreen] = useState(window.innerWidth >= 1024);
+  
+  const DownloadButton = useCallback(() => {
+    return   <div className="downloadsbtns fixed top-52 gap-4 right-5 z-50 ">
+    <div  className="playstore text-white   rounded-[6px] border-white ">
+                            <img className='w-[30px]' src="sm-playstore.svg" alt="" srcset="" />
+                      
+                        
+    
+                        </div>
+                        <div  className="playstore mt-3  text-white   rounded-[6px] border-white">
+                            <img className='w-[30px]' src="sm-apple.svg" alt="" srcset="" />
+                      
+                        
+    
+                        </div>
+    
+    </div>
+  
+  })
 
 
 
@@ -35,7 +56,7 @@ const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top with smooth animation
 };
   return (
-    <div className='relative'>
+    <div className={` ${isLgScreen ? "" : "" }`}>
    <Header/>
    <SafeSpace/>
    <Youfeel/>
@@ -48,26 +69,25 @@ const handleScrollToTop = () => {
    <FAQ/>
    <Sharereview/>
    {showScrollTop && (
-//    
-
-//  <div className="btn lg:text-[28px]  md:text-[12px] bg-white text-[#111111] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full">
-//                       <div className="bg-white p-1 rounded-full">
-//                         <GoArrowRight />
-//                       </div>
-//                     </div>
 
 
-<div className="btn lg:text-[28px] z-50  w-fit fixed bottom-5 right-10 md:text-[12px] bg-white text-[#111111] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full">
+
+<div className="btn lg:text-[28px] z-50  w-fit right-6  fixed bottom-5 justify-center item-center  md:text-[12px] bg-white text-[#111111] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full">
   <div 
-                    onClick={handleScrollToTop} 
+               key={showScrollTop}     onClick={handleScrollToTop} 
                     
                     className="bg-white p-1 rounded-full">
                     <GoArrowUp/>
                 </div>
 
+
+
 </div>
+
               
             )}
+            <DownloadButton/>
+           
  <Footer/>
 
    
