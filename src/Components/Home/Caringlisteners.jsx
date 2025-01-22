@@ -171,7 +171,7 @@ import Slider from "react-slick";
 
 
 const CarouselComponent = ({ listeners,
-  settings
+  settings,handleviewDescription
 }) => (
   <Slider {...settings}>
     {listeners.map((listener, index) => (
@@ -185,7 +185,10 @@ const CarouselComponent = ({ listeners,
         </div>
         <h3 className="absolute w-[75%] bottom-[40%] left-[50%] transform -translate-x-1/2 text-[#d9d9d9] text-[24px] text-center font-semibold">{listener.name}</h3>
         <span className="absolute w-[85%] bottom-[23%] left-[50%] transform -translate-x-1/2 font-normal text-[#808080] text-center text-[14px]">{listener.description}</span>
-        <div className="absolute bottom-[8%] left-[50%] transform -translate-x-1/2 text-[#111111] text-[12px] bg-[#d9d9d9] hover:shadow-[0_0_28px_13px_rgba(217,217,217,0.2)] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full bg-gradient-to-t from-transparent to-[#d9d9d9]">
+        <div onClick={
+          ()=>{                   handleviewDescription({data:listener})
+        }
+        } className="absolute bottom-[8%] left-[50%] transform -translate-x-1/2 text-[#111111] text-[12px] bg-[#d9d9d9] hover:shadow-[0_0_28px_13px_rgba(217,217,217,0.2)] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full bg-gradient-to-t from-transparent to-[#d9d9d9]">
           <button className="px-4 py-[6px] rounded-full" style={{ backgroundClip: 'padding-box' }}>Connect Now</button>
         </div>
       </div>
@@ -219,9 +222,8 @@ function Caringlisteners() {
     //   </div>
     // ),
     customPaging: function(i) {
-      console.log(i,"info")
       return (
-        <div className={`flex justify-center items-center gap-2  
+        <div className={`flex justify-center items-center 
           `}>
          <div
                 
@@ -229,7 +231,7 @@ function Caringlisteners() {
                     
                     w-3
                     rounded-full      ${
-                     currentIndex === i ? "bg-white w-7" : "bg-gray-500"
+                     currentIndex === i ? "bg-white w-9" : "bg-gray-500"
                  }
                    
                   `}
@@ -242,8 +244,8 @@ function Caringlisteners() {
 
   const listeners = [
     { profile: "profile.png", name: "Mohit", age: 26, description: "I started dating a guy when I was young, it went on for 4 long years. Since the beginning of the relationship... Read More" },
-    { profile: "profile-2-img.png", name: "Simran", age: 30, description: "Another story here... Read More" },
-    { profile: "profile-3-img.png", name: "Anushka", age: 30, description: "Another story here... Read More" }
+    { profile: "profile-2-img.png", name: "Simran", age: 30, description: "I have served the nation in the Indian Navy for 35 years. It has provided me with a humongous and kaleidoscope ... read more" },
+    { profile: "profile-3-img.png", name: "Anushka", age: 30, description: "I have served the nation in the Indian Navy for 35 years. It has provided me with a humongous and kaleidoscope ... read more" }
   ];
 
   useEffect(() => {
@@ -262,14 +264,19 @@ function Caringlisteners() {
   }, [isLgScreen, listeners.length]);
 
   const handleViewOurListeners = () => navigate("/OurListeners");
+  const handleviewDescription = ({data}) =>{
+    console.log("call hua",data )
+    navigate("/Ourlistener", { state: data });
+  }
+  ;
 
   return (
-    <div className={`bg-[#111111] ${isLgScreen ? "py-40 flex" : "py-20"}  flex-col items-center`}>
+    <div className={`bg-[#111111] ${isLgScreen ? "py-40 flex  " :  "py-20 "} flex-col justify-center items-center`}>
       <div className={`${isLgScreen ? "text-[60px] gap-4 flex" : "text-[26px] gap-2 flex flex-col"} justify-center items-center font-semibold`}>
         <span className="text-[#808080]">Meet Our Caring</span>
         <span className="text-[#d9d9d9]">Listeners</span>
       </div>
-      <div className="cards py-[80px]">
+      <div className={`cards ${isLgScreen ? "flex gap-[24px] py-[80px]" : "py-[50px] " }  `}>
         {isLgScreen ? (
           listeners.map((listener, index) => (
             <motion.div
@@ -289,22 +296,35 @@ function Caringlisteners() {
               </div>
               <h3 className="absolute w-[75%] bottom-[39%] left-1/2 transform -translate-x-1/2 text-[#d9d9d9] lg:text-[32px] text-center font-semibold">{listener.name}</h3>
               <span className="absolute w-[89%] bottom-[18%] left-1/2 transform -translate-x-1/2 font-normal text-[#808080] text-center lg:text-[20px]">{listener.description}</span>
-              <div className="absolute bottom-[5%] left-1/2 transform -translate-x-1/2 text-[#111111] lg:text-[18px] bg-[#d9d9d9] hover:shadow-[0_0_28px_13px_rgba(217,217,217,0.2)] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full bg-gradient-to-t from-transparent to-[#d9d9d9]">
+              <div onClick={
+                ()=>{
+                  handleviewDescription({data:listener})
+                }
+              } className="absolute bottom-[5%] left-1/2 transform -translate-x-1/2 text-[#111111] lg:text-[18px] bg-[#d9d9d9] hover:shadow-[0_0_28px_13px_rgba(217,217,217,0.2)] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full bg-gradient-to-t from-transparent to-[#d9d9d9]">
                 <button className="lg:px-6 lg:py-3 rounded-full" style={{ backgroundClip: 'padding-box' }}>Connect Now</button>
               </div>
             </motion.div>
           ))
         ) : (
           <CarouselComponent listeners={listeners}
-          settings={settings}
+          settings={settings} handleviewDescription={handleviewDescription}
           />
         )}
       </div>
-      <div onClick={handleViewOurListeners} className="btn bg-[#111111] hover:bg-[#d9d9d9] text-[#d9d9d9] hover:shadow-[0_0_30px_15px_rgba(217,217,217,0.2)] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] hover:text-[#111111] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full bg-gradient-to-t from-transparent to-[#d9d9d9]">
+      {/* <div onClick={handleViewOurListeners} className="btn w-fit item-center justify-center bg-[#111111] hover:bg-[#d9d9d9] text-[#d9d9d9] hover:shadow-[0_0_30px_15px_rgba(217,217,217,0.2)] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] hover:text-[#111111] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full bg-gradient-to-t from-transparent to-[#d9d9d9]">
         <div className={`${isLgScreen ? "px-10 py-3 text-[28px]" : "px-5 py-1 text-[18px]"} rounded-full`}>
           View all
         </div>
-      </div> 
+      </div>  */}
+      <div className="btn  ">
+         <div onClick={handleViewOurListeners} className={`btn  text-center ${isLgScreen? "" : "ml-[130px]" } w-fit relative   bg-[#111111] hover:bg-[#d9d9d9] text-[#d9d9d9] hover:shadow-[0_0_30px_15px_rgba(217,217,217,0.2)] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] hover:text-[#111111] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full bg-gradient-to-t from-transparent to-[#d9d9d9]`}>
+        <div className={`bg-[#111111] hover:bg-[#d9d9d9]  ${ 
+          isLgScreen ? "px-10 py-3 text-[28px]"
+ : "px-5 py-1 text-[18px] "          }   rounded-full`}>
+          View all
+        </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -150,14 +150,14 @@ function Appfeatured() {
             </div> 
 
             {/* Custom Dot Indicators */}
-            <div className={`flex justify-center items-center gap-2  ${
+            <div className={`flex justify-center items-center gap-[13px]  ${
                 isLgScreen ? "mt-16" : "mt-8" }
                 `}>
                 {data.map((_, index) => (
                     <div
                         key={index}
                         className={`w-3 h-3 rounded-full  transition-all ${
-                            currentIndex === index+1 ? "bg-white w-7" : "bg-gray-500"
+                            currentIndex === index+1 ? "bg-white w-6" : "bg-gray-500"
                         }`}
                     
                     ></div>

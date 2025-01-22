@@ -1,130 +1,4 @@
 
-// import React, { useEffect, useState } from 'react';
-// import { motion } from "motion/react"
-// import "./Youfeel.css"
-
-
-// function Youfeel() {
-
-  
-
-//   return (
-//     <div 
-//      className="bg-[#111111]   py-40">
-//       {/* Heading Section */}
-//       <div className="lg:text-[60px] md:text-[40px] flex flex-col justify-between items-center font-semibold">
-//         <span className="text-[#808080]">Do you feel you are the</span>
-//         <span className="text-[#d9d9d9]">Only One?</span>
-//       </div>
-
-//       {/* Card Section */}
-//       <div className="cards lg:px-0 md:px-8 sm:px-4  flex justify-center gap-[24px] pt-[80px] ">
-        
-//         <motion.div 
-        
-//         transition={{
-//           duration: 1.1 // Specify the duration of the animation
-//         }}
-//         initial={{
-//           x: 300 // Starting position
-//         }}
-//         whileInView={{
-//           x: 0, // Target position
-//         }}
-//         viewport={{
-//           once:true,
-//          // Trigger animation only once
-//           amount: 0.2, // Specifies the amount of the element that must be in view (0.5 means 50%)
-//         }}
-//         className="card relative ">
-//           {/* Cardframe Image */}
-//           <img
-//             src="Cardframe.png"
-//             alt="Card Frame"
-//             className="w-full h-full object-cover"
-//           />
-          
-//           {/* Feel-1 Image on Top */}
-//           <div className=''>
-//           <img
-//             src="feel-1-image.png"
-//             alt="Feel Image"
-//             className="absolute top-[8%] left-1/2 transform -translate-x-1/2 w-[80%] h-auto"
-//           />
-//           </div>
-          
-
-//           {/* Heading on Top */}
-//           <h3 className="absolute w-[75%]  bottom-[15%]  left-1/2 transform -translate-x-1/2 text-[#d9d9d9] lg:text-[28px] md:text-[18px]  text-center font-semibold">
-//             43% of Indians are Facing Loneliness!
-//           </h3>
-//         </motion.div>
-//         <div className="card relative ">
-//           {/* Cardframe Image */}
-//           <img
-//             src="Cardframe.png"
-//             alt="Card Frame"
-//             className="w-full h-full object-cover"
-//           />
-          
-//           {/* Feel-1 Image on Top */}
-//           <div className=''>
-//           <img
-//             src="feel-1-image.png"
-//             alt="Feel Image"
-//             className="absolute top-[8%] left-1/2 transform -translate-x-1/2 w-[80%] h-auto"
-//           />
-//           </div>
-          
-
-//           {/* Heading on Top */}
-//           <h3 className="absolute w-[75%]  bottom-[15%]  left-1/2 transform -translate-x-1/2 text-[#d9d9d9] lg:text-[28px] md:text-[18px] text-center font-semibold">
-//             43% of Indians are Facing Loneliness!
-//           </h3>
-//         </div>
-//         <motion.div   transition={{
-//           duration: 1.1 // Specify the duration of the animation
-//         }}
-//         initial={{
-//           x: -300 // Starting position
-//         }}
-//         whileInView={{
-//           x: 0, // Target position
-//         }}
-//         viewport={{
-//           once:true,
-//          // Trigger animation only once
-//           amount: 0.2, // Specifies the amount of the element that must be in view (0.5 means 50%)
-//         }}
-//          className="card relative ">
-//           {/* Cardframe Image */}
-//           <img
-//             src="Cardframe.png"
-//             alt="Card Frame"
-//             className="w-full h-full object-cover"
-//           />
-          
-//           {/* Feel-1 Image on Top */}
-//           <div className=''>
-//           <img
-//             src="feel-1-image.png"
-//             alt="Feel Image"
-//             className="absolute top-[8%] left-1/2 transform -translate-x-1/2 w-[80%] h-auto"
-//           />
-//           </div>
-          
-
-//           {/* Heading on Top */}
-//           <h3 className="absolute w-[75%]  bottom-[15%]  left-1/2 transform -translate-x-1/2 text-[#d9d9d9] lg:text-[28px] md:text-[18px]  text-center font-semibold">
-//             43% of Indians are Facing Loneliness!
-//           </h3>
-//         </motion.div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Youfeel;
 
 
 
@@ -171,18 +45,35 @@ function Youfeel() {
     }
   }, [isLgScreen, testimonials.length]);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+
+ 
 
 
-  
 
   const renderCards = () => {
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false, // Keep this if arrows are not needed
+      autoplay: true,
+      autoplaySpeed: 3000,
+  
+      customPaging: function (i) {
+        return (
+          <div className={`flex justify-center items-center 
+            `}>
+            <div className={` h-3 w-3 rounded-full      ${currentIndex === i ? "bg-white w-9" : "bg-gray-500"
+                } `}
+  
+            ></div>
+          </div>
+  
+        )
+      }
+    };
     if (isLgScreen) {
       // Render all cards for large screens
       return testimonials.map((testimonial, index) => (
@@ -211,44 +102,40 @@ function Youfeel() {
       // Render a single card for small screens with transition
       const currentTestimonial = testimonials[currentIndex];
       return (
-        <motion.div
-          key={currentIndex}
-          transition={{ duration: 0.6 }}
-          initial={{ x: "px" }} // Start off-screen to the right
-          animate={{ x: "0" }} // Slide to the center
-          exit={{ x: "-" }} // Slide off-screen to the left
-          className="card relative mx-auto"
-          // className="card relative"
-        >
-          <img src="sm-youfeel.png" alt="Card Frame" className="w-[80%] self-center mx-auto h-[100%] object-cover" />
-          <div>
-            <img
-              src={currentTestimonial.img}
-              alt="Feel Image"
-              className="absolute top-[6%] left-[50%] transform -translate-x-1/2 w-[50%] h-auto"
-            />
-          </div>
-          <h3 className="absolute w-[75%] bottom-[7%] px-3 left-[50%] transform -translate-x-1/2 text-[#d9d9d9] text-[18px] text-center font-semibold">
-            {currentTestimonial.text}
-          </h3>
-        </motion.div>
+        <Slider {...settings}>
+          {testimonials.map((testimonial, i) => (
+            <div key={i} className='relative z-50'>
+              <img src="sm-youfeel.png" alt="Card Frame" className="w-[80%] self-center mx-auto h-[100%] object-cover" />
+              <div>
+                <img
+                  src={testimonial.img}
+                  alt="Feel Image"
+                  className="absolute top-[6%] left-[50%] transform -translate-x-1/2 w-[50%] h-auto"
+                />
+              </div>
+              <h3 className="absolute w-[75%] bottom-[7%] px-3 left-[50%] transform -translate-x-1/2 text-[#d9d9d9] text-[18px] text-center font-semibold">
+                {testimonial.text}
+              </h3>
+            </div>
+          ))}
+
+
+        </Slider>
       );
     }
   };
 
   return (
-    <div className={`bg-[#111111] ${
-      isLgScreen ? " py-40" : "py-20" }
+    <div className={`bg-[#111111] ${isLgScreen ? " py-40" : "py-20"}
     } `}>
       {/* Heading Section */}
-      <div className={` ${
-        isLgScreen ? "text-[60px] pb-[80px]" : "text-[26px] pb-10" }  flex  flex-col justify-between items-center font-semibold`}>
+      <div className={` ${isLgScreen ? "text-[60px] pb-[80px]" : "text-[26px] pb-10"}  flex  flex-col justify-between items-center font-semibold`}>
         <span className="text-[#808080]">Do you feel you are the</span>
         <span className="text-[#d9d9d9]">Only One?</span>
       </div>
 
       {/* Card Section */}
-      <div className="cards  flex justify-center gap-[24px]">
+      <div className={`cards ${isLgScreen ? "flex" :"" }  justify-center gap-[24px]`}>
         {renderCards()}
       </div>
     </div>

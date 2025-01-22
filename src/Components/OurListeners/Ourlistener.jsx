@@ -38,7 +38,7 @@ function Ourlistener() {
       rating: 4.5,
       reviews: 20,
       experience: "150 Hrs",
-      description: "I ha ve served thve served the nation in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
+      description: "I ha ve served thve served the nation in tuuuu uuuuuuuu uuuuuuuuhe lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
       image: "profile.png",
     },
     {
@@ -48,7 +48,7 @@ function Ourlistener() {
       rating: 4.5,
       reviews: 20,
       experience: "150 Hrs",
-      description: "I ha ve served the nation ggggggggggggggggggin the lorem45  lorem45 veve served the nation in the lorem45ve served the nation in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
+      description: "I ha ve served the nation g the lorem45  lorem45 veve sn ve served the nation in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
       image: "profile.png"
     },
     {
@@ -58,7 +58,7 @@ function Ourlistener() {
       rating: 4.5,
       reviews: 20,
       experience: "150 Hrs",
-      description: "I ha ve servedn in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
+      description: "I ha ve servedn in the lorem45ve gbgbbgbgb served th lorem45  served th lorem4  served th lorem4 served the nation in the lorem45Indian Navy for 35 years...",
       image: "profile.png",
     },
     {
@@ -68,7 +68,7 @@ function Ourlistener() {
       rating: 4.5,
       reviews: 20,
       experience: "150 Hrs",
-      description: "I ha ve servon in the lorem45ve served the nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
+      description: "I ha ve servon in the lorem45ve served the  served th lorem4  served th lorem4 nation in the lorem45 served the nation in the lorem45Indian Navy for 35 years...",
       image: "profile.png",
     },
     // Add more listener objects as needed
