@@ -168,21 +168,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false, // Keep this if arrows are not needed
-  autoplay: true,
-  autoplaySpeed: 3000,
-};
 
-const CarouselComponent = ({ listeners }) => (
+
+const CarouselComponent = ({ listeners,
+  settings
+}) => (
   <Slider {...settings}>
     {listeners.map((listener, index) => (
-      <div key={index} className="card relative bg-red-500 z-50">
+      <div key={index} className="card relative  z-50">
         <img src="sm-ourlistener-bg.svg" alt="Card Frame" className="w-[90%] mx-auto h-[100%] object-cover" />
         <div>
           <img src={listener.profile} alt="Feel Image" className="absolute top-[6%] left-[50%] transform -translate-x-1/2 w-[40%] h-auto" />
@@ -204,6 +197,48 @@ function Caringlisteners() {
   const navigate = useNavigate();
   const [isLgScreen, setIsLgScreen] = useState(window.innerWidth >= 1024);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false, // Keep this if arrows are not needed
+    autoplay: true,
+    autoplaySpeed: 3000,
+    // appendDots: dots => (
+    //   <div
+    //     style={{
+    //       backgroundColor: "red",
+    //       borderRadius: "10px",
+    //       padding: "10px"
+    //     }}
+    //   >
+    //     <ul style={{ margin: "0px" }}> {dots} </ul>
+    //   </div>
+    // ),
+    customPaging: function(i) {
+      console.log(i,"info")
+      return (
+        <div className={`flex justify-center items-center gap-2  
+          `}>
+         <div
+                
+                  className={` h-3
+                    
+                    w-3
+                    rounded-full      ${
+                     currentIndex === i ? "bg-white w-7" : "bg-gray-500"
+                 }
+                   
+                  `}
+                
+              ></div>
+      </div>
+      
+    )}
+  };
 
   const listeners = [
     { profile: "profile.png", name: "Mohit", age: 26, description: "I started dating a guy when I was young, it went on for 4 long years. Since the beginning of the relationship... Read More" },
@@ -229,7 +264,7 @@ function Caringlisteners() {
   const handleViewOurListeners = () => navigate("/OurListeners");
 
   return (
-    <div className={`bg-[#111111] ${isLgScreen ? "py-40" : "py-20"} flex flex-col items-center`}>
+    <div className={`bg-[#111111] ${isLgScreen ? "py-40 flex" : "py-20"}  flex-col items-center`}>
       <div className={`${isLgScreen ? "text-[60px] gap-4 flex" : "text-[26px] gap-2 flex flex-col"} justify-center items-center font-semibold`}>
         <span className="text-[#808080]">Meet Our Caring</span>
         <span className="text-[#d9d9d9]">Listeners</span>
@@ -260,14 +295,16 @@ function Caringlisteners() {
             </motion.div>
           ))
         ) : (
-          <CarouselComponent listeners={listeners} />
+          <CarouselComponent listeners={listeners}
+          settings={settings}
+          />
         )}
       </div>
       <div onClick={handleViewOurListeners} className="btn bg-[#111111] hover:bg-[#d9d9d9] text-[#d9d9d9] hover:shadow-[0_0_30px_15px_rgba(217,217,217,0.2)] shadow-[0_0_17px_7px_rgba(217,217,217,0.2)] hover:text-[#111111] font-semibold px-[2px] py-[2px] duration-300 cursor-pointer rounded-full bg-gradient-to-t from-transparent to-[#d9d9d9]">
         <div className={`${isLgScreen ? "px-10 py-3 text-[28px]" : "px-5 py-1 text-[18px]"} rounded-full`}>
           View all
         </div>
-      </div>
+      </div> 
     </div>
   );
 }
